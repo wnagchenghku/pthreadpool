@@ -25,7 +25,7 @@ extern "C" {
  * @returns  A pointer to an opaque thread pool object.
  *    On error the function returns NULL and sets errno accordingly.
  */
-pthreadpool_t pthreadpool_create(size_t threads_count);
+// pthreadpool_t pthreadpool_create(size_t threads_count);
 
 /**
  * Queries the number of threads in a thread pool.
