@@ -75,13 +75,15 @@ static inline size_t min(size_t a, size_t b) {
 #if PTHREADPOOL_USE_FUTEX
 	#if defined(__linux__)
 		static int futex_wait(volatile uint32_t* address, uint32_t value) {
-			return syscall(SYS_futex, address, FUTEX_WAIT | FUTEX_PRIVATE_FLAG, value,
-				NULL, NULL, 0);
+			//return syscall(SYS_futex, address, FUTEX_WAIT | FUTEX_PRIVATE_FLAG, value,
+			//	NULL, NULL, 0);
+			return 0;
 		}
 
 		static int futex_wake_all(volatile uint32_t* address) {
-			return syscall(SYS_futex, address, FUTEX_WAKE | FUTEX_PRIVATE_FLAG, INT_MAX,
-				NULL, NULL, 0);
+			//return syscall(SYS_futex, address, FUTEX_WAKE | FUTEX_PRIVATE_FLAG, INT_MAX,
+			//	NULL, NULL, 0);
+			return 0;
 		}
 	#elif defined(__native_client__)
 		static struct nacl_irt_futex nacl_irt_futex = { 0 };
